@@ -9,8 +9,6 @@ import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
-import static org.junit.Assert.*;
-
 /**
  * @ Author     ：焦康
  * @ Date       ：Created in 21:19 2019/1/8
