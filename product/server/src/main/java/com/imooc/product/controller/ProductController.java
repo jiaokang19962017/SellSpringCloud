@@ -3,12 +3,14 @@ package com.imooc.product.controller;
 import com.imooc.product.VO.ProductInfoVO;
 import com.imooc.product.VO.ProductVO;
 import com.imooc.product.VO.ResultVO;
+import com.imooc.product.common.DecreaseStockInput;
 import com.imooc.product.dataobject.ProductCategory;
 import com.imooc.product.dataobject.ProductInfo;
 import com.imooc.product.dto.CartDTO;
 import com.imooc.product.service.CategoryService;
 import com.imooc.product.service.ProductService;
 import com.imooc.product.utils.ResultVOUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +26,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/product")
+@Slf4j
 public class ProductController {
 
     @Autowired
@@ -68,8 +71,9 @@ public class ProductController {
         return productService.findList(productIdList);
     }
 
-    @PostMapping("/decreaseStock")
-    public void decreaseStock(@RequestBody List<CartDTO> cartDTOList){
-        productService.decreaseStock(cartDTOList);
+    @PostMapping(value = "/decreaseStock")
+    public void decreaseStock(@RequestBody List<DecreaseStockInput> decreaseStockInputList){
+        log.info("[接口被调用:{}]",decreaseStockInputList);
+        productService.decreaseStock(decreaseStockInputList);
     }
 }

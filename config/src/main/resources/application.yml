@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jiaokang19962017/config-repo
+          username: 811708046@qq.com
+          password: jiaokang520
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      expose: "*"
